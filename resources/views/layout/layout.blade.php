@@ -107,6 +107,8 @@
             text[i].innerHTML= '';
         var tabel= document.getElementsByTagName('tabel');
         $("table").remove();
+
+        $("img").remove();
         return false;
     }
 

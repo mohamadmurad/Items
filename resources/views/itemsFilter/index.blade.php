@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <form action="{{ route('itemsSearch') }}" method="POST">
+    <form action="{{ route('itemsSearch') }}" method="POST" style="margin: 0px 0px 20px 0px;">
         @csrf
         <div class="row">
             {{--                 computerNo--}}
@@ -235,10 +235,14 @@
         </div>
     </form>
 
-
+    @if(isset($notFound))
+        <div class="alert alert-danger text-center" role="alert">
+            لا يوجد نتيجة
+        </div>
+    @endif
     @if(isset($report))
         <br>
-        <img src="{{url('img/1.jpg')}}" alt="..." class="rounded mx-auto d-block" width="200px">
+        <img src="{{$img}}" alt="..." class="rounded mx-auto d-block" width="200px">
         <table class="table table-bordered" id="info">
             <tr>
 
@@ -265,10 +269,30 @@
                     <td>{{$barcode}}</td>
                     <td>{{ $j[0]->ColorName }}</td>
                     <td>{{ $j[0]->SizeName }}</td>
-                    @foreach ($j as $jj)
-                        <td>{{ $jj->Qty }}</td>
-                        <?php  $total += $jj->Qty; ?>
+
+                    {{--                    @foreach ($j as $jj)--}}
+                    @foreach ($branches as $branch)
+                        <?php $x = 1; ?>
+                        <?php
+                            $c = $j->where('BranchName','=', $branch->BranchName)->first();
+                           // echo $c;
+                            ?>
+                        @if($c != null)
+                                <td>{{ $c->Qty }}</td>
+                                <?php  $total += $c->Qty;  $x++;?>
+                            @else
+                                <td>0</td>
+                            @endif
+{{--                        @if($jj->BranchName == $branch->BranchName)--}}
+{{--                            <td>qty{{ $jj->Qty }}</td>--}}
+{{--                        @else--}}
+{{--                            <td>0</td>--}}
+{{--                        @endif--}}
+
+                        {{--                        @endforeach--}}
+                        {{----}}
                     @endforeach
+
                     <td>{{$total}}</td>
                     <?php $Alltotal = $total + $Alltotal; ?>
                 </tr>
@@ -277,10 +301,19 @@
                 <td>الاجمالي</td>
                 <td></td>
                 <td></td>
-                @foreach ($tot as $tt)
-                    <td>{{ $tt }}</td>
-                @endforeach
-                                <td>{{ $Alltotal }}</td>
+                @foreach ($branches as $branch)
+                    <?php
+                        $t= $tot->get($branch->BranchName);
+                    ?>
+
+                            <td>{{ $t }}</td>
+
+                    @endforeach
+
+{{--                @foreach ($tot as $tt)--}}
+{{--                    <td>{{ $tt }}</td>--}}
+{{--                @endforeach--}}
+                <td>{{ $Alltotal }}</td>
             </tr>
 
 

@@ -59,7 +59,7 @@ class ItemsController extends Controller
         $brands = Brands::all();
         $years = MTI::select('ItemYear')->groupBy('ItemYear')->get();
 
-
+        $img = 'http://82.137.231.35:100/' . $ComputerNo . '.jpg';
         $branches =  DB::table('MTI')->where('MTI.ComputerNo', '=', $ComputerNo)
             ->join('MTD', 'MTI.ComputerNo', '=', 'MTD.ComputerNo')
             ->join('MTS', 'MTD.Code', '=', 'MTS.Code')
@@ -147,6 +147,7 @@ class ItemsController extends Controller
             'tot' => $join->get()->groupBy('BranchName')->map(function ($row) {
                 return $row->sum('Qty');
             }),
+            'img' => $img,
 
         ]);
 
@@ -160,7 +161,7 @@ class ItemsController extends Controller
         $ComputerNo = $request->get('ComputerNo');
         $BarCode = $request->get('BarCode');
         $ModelNo = $request->get('ModelNo');
-
+        $img = 'http://82.137.231.35:100/' . $ComputerNo . '.jpg';
 
         $DeptID = $request->get('DeptID');
         $ItemID = $request->get('ItemID');
@@ -209,19 +210,36 @@ class ItemsController extends Controller
                 ]);
             }
 
+
+            if (count($mti->get()) == 0){
+                return view('itemsFilter.index', [
+                    'colors' => $colors,
+                    'sizes' => $sizes,
+                    'depts' => $depts,
+                    'items' => $items,
+                    'seasons' => $seasons,
+                    'types' => $types,
+                    'fabrics' => $fabrics,
+                    'countries' => $countries,
+                    'brands' => $brands,
+                    'years' => $years,
+                    'notFound' => true,
+                ]);
+            }
+
             $branches =  DB::table('MTI')
                 ->join('MTD', 'MTI.ComputerNo', '=', 'MTD.ComputerNo')
                 ->join('MTS', 'MTD.Code', '=', 'MTS.Code')
                 ->join('Branches', 'MTS.BranchID', '=', 'Branches.BranchID')
-                ->select('Branches.BranchName')
-                ->groupBy(['Branches.BranchName']);
+                ->select('Branches.BranchName','Branches.BranchID', DB::raw('Sum(MTS.Qty) As total'))
+                ->groupBy(['Branches.BranchName','Branches.BranchID'])->having(DB::raw('Sum(ABS(MTS.Qty))') ,'>',0);
 
             $join = DB::table('MTI')
                 ->join('MTD', 'MTI.ComputerNo', '=', 'MTD.ComputerNo')
                 ->join('MTS', 'MTD.Code', '=', 'MTS.Code')
                 ->join('Colors', 'MTD.ColorID', '=', 'Colors.ColorID')
                 ->join('Sizes', 'MTD.SizeID', '=', 'Sizes.SizeID')
-                ->join('Branches', 'MTS.BranchID', '=', 'Branches.BranchID')
+                ->leftJoin('Branches', 'MTS.BranchID', '=', 'Branches.BranchID')->whereIn('Branches.BranchID',$branches->pluck('Branches.BranchID'))
                 ->select(
                    // 'MTI.ComputerNo',
                    // 'MTI.ModelNo',
@@ -303,9 +321,11 @@ class ItemsController extends Controller
             $collection = $join->get()->groupBy('BranchName')->map(function ($row) {
                 return $row->sum('Qty');
             });
-          //  dd($join->get());
-          //  dd($branches->get());
-
+            //dd($branches->get());
+           // dd($join->get()->groupBy('BarCode'));
+            /*dd($join->whereIn('Branches.BranchID',$branches->pluck('Branches.BranchID'))->get()->groupBy('BranchName')->map(function ($row) {
+                return $row->sum('Qty');
+            }));*/
             return view('itemsFilter.index', [
                 'colors' => $colors,
                 'sizes' => $sizes,
@@ -321,9 +341,10 @@ class ItemsController extends Controller
                  'mti' => $mti->first(),
                 'join' => $join->get()->groupBy('BarCode'),
                 'branches' => $branches->get(),
-                'tot' => $join->get()->groupBy('BranchName')->map(function ($row) {
+                'tot' => $join->whereIn('Branches.BranchID',$branches->pluck('Branches.BranchID'))->get()->groupBy('BranchName')->map(function ($row) {
                     return $row->sum('Qty');
                 }),
+                'img' => $img,
 
             ]);
         }

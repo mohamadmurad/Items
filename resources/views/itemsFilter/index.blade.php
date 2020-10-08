@@ -138,7 +138,7 @@
                 <div class="form-group">
                     <strong>رقم الرف :</strong>
                     <input type="text" class="form-control" name="StandNo"
-                           value="{{isset($mti) ? $mti->StandNo : ''  }}">
+                           value="{{isset($mti) ? $mti->StandNo : ''  }}" disabled>
                 </div>
             </div>
 
@@ -173,7 +173,7 @@
                 <div class="form-group">
                     <strong>الوصف :</strong>
                     <input class="form-control form-control-lg" type="text" name="Des"
-                           value="{{isset($mti) ? $mti->Des : ''  }}">
+                           value="{{isset($mti) ? $mti->Des : ''  }}" disabled>
 
                 </div>
             </div>
@@ -184,7 +184,7 @@
                 <div class="form-group">
                     <strong>سعر البيع :</strong>
                     <input class="form-control " type="text" name="EndUser"
-                           value="{{isset($mti) ? $mti->EndUser : ''  }}">
+                           value="{{isset($mti) ? $mti->EndUser : ''  }}" disabled>
 
                 </div>
             </div>
@@ -192,7 +192,7 @@
             <div class="col-xs-12 col-sm-12 col-md-2">
                 <div class="form-group">
                     <strong>سعر التنزيلات :</strong>
-                    <input class="form-control" type="text" name="Sale" value="{{isset($mti) ? $mti->Sale : ''  }}">
+                    <input class="form-control" type="text" name="Sale" value="{{isset($mti) ? $mti->Sale : ''  }}" disabled>
 
                 </div>
             </div>
@@ -201,7 +201,7 @@
                 <div class="form-group">
                     <strong>العرض الخاص :</strong>
                     <input class="form-control " type="text" name="Special"
-                           value="{{isset($mti) ? $mti->Special : ''  }}">
+                           value="{{isset($mti) ? $mti->Special : ''  }}" disabled>
 
                 </div>
             </div>
@@ -210,7 +210,7 @@
                 <div class="form-group">
                     <strong>سعر التصفية :</strong>
                     <input class="form-control " type="text" name="Clearance"
-                           value="{{isset($mti) ? $mti->Clearance : ''  }}">
+                           value="{{isset($mti) ? $mti->Clearance : ''  }}" disabled>
 
                 </div>
             </div>
@@ -219,7 +219,7 @@
                 <div class="form-group">
                     <strong>اقل سعر بيع :</strong>
                     <input class="form-control" type="text" name="MinPrice"
-                           value="{{isset($mti) ? $mti->MinPrice : ''  }}">
+                           value="{{isset($mti) ? $mti->MinPrice : ''  }}" disabled>
 
                 </div>
             </div>

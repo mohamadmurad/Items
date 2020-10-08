@@ -64,15 +64,16 @@ class ItemsController extends Controller
             ->join('MTD', 'MTI.ComputerNo', '=', 'MTD.ComputerNo')
             ->join('MTS', 'MTD.Code', '=', 'MTS.Code')
             ->join('Branches', 'MTS.BranchID', '=', 'Branches.BranchID')
-            ->select('Branches.BranchName')
-            ->groupBy(['Branches.BranchName']);
+            ->select('Branches.BranchName','Branches.BranchID', DB::raw('Sum(MTS.Qty) As total'))
+            ->groupBy(['Branches.BranchName','Branches.BranchID'])->having(DB::raw('Sum(ABS(MTS.Qty))') ,'>',0);
+
 
         $join = DB::table('MTI')->where('MTI.ComputerNo', '=', $ComputerNo)
             ->join('MTD', 'MTI.ComputerNo', '=', 'MTD.ComputerNo')
             ->join('MTS', 'MTD.Code', '=', 'MTS.Code')
             ->join('Colors', 'MTD.ColorID', '=', 'Colors.ColorID')
             ->join('Sizes', 'MTD.SizeID', '=', 'Sizes.SizeID')
-            ->join('Branches', 'MTS.BranchID', '=', 'Branches.BranchID')
+            ->leftJoin('Branches', 'MTS.BranchID', '=', 'Branches.BranchID')->whereIn('Branches.BranchID',$branches->pluck('Branches.BranchID'))
             ->select(
             // 'MTI.ComputerNo',
             // 'MTI.ModelNo',
@@ -161,7 +162,7 @@ class ItemsController extends Controller
         $ComputerNo = $request->get('ComputerNo');
         $BarCode = $request->get('BarCode');
         $ModelNo = $request->get('ModelNo');
-        $img = 'http://82.137.231.35:100/' . $ComputerNo . '.jpg';
+
 
         $DeptID = $request->get('DeptID');
         $ItemID = $request->get('ItemID');
@@ -200,32 +201,43 @@ class ItemsController extends Controller
             ]));
         }*/
 
-        if (true) {
+        $mti = null;
             $report = true;
-            $mti = MTI::FilterData($request);
+            if (!$request->get('BarCode')){
+                $mti = MTI::FilterData($request);
 
-            if (count($mti->get()) > 1){
-                return view('itemsFilter.showing', [
-                     'MTI' => $mti->paginate(),
-                ]);
+                if (count($mti->get()) > 1){
+                    return view('itemsFilter.showing', [
+                        'MTI' => $mti->paginate(),
+                    ]);
+                }
+
+                if (count($mti->get()) == 0){
+                    return view('itemsFilter.index', [
+                        'colors' => $colors,
+                        'sizes' => $sizes,
+                        'depts' => $depts,
+                        'items' => $items,
+                        'seasons' => $seasons,
+                        'types' => $types,
+                        'fabrics' => $fabrics,
+                        'countries' => $countries,
+                        'brands' => $brands,
+                        'years' => $years,
+                        'notFound' => true,
+                    ]);
+                }
+            }
+
+            if ($request->get('BarCode')){
+                $compNo = MTD::where('BarCode','=',$BarCode)->first()->ComputerNo;
+                $ComputerNo = $compNo;
+                $mti = MTI::where('ComputerNo','=',$ComputerNo);
             }
 
 
-            if (count($mti->get()) == 0){
-                return view('itemsFilter.index', [
-                    'colors' => $colors,
-                    'sizes' => $sizes,
-                    'depts' => $depts,
-                    'items' => $items,
-                    'seasons' => $seasons,
-                    'types' => $types,
-                    'fabrics' => $fabrics,
-                    'countries' => $countries,
-                    'brands' => $brands,
-                    'years' => $years,
-                    'notFound' => true,
-                ]);
-            }
+
+
 
             $branches =  DB::table('MTI')
                 ->join('MTD', 'MTI.ComputerNo', '=', 'MTD.ComputerNo')
@@ -290,7 +302,7 @@ class ItemsController extends Controller
                     'MTS.Qty'
                 ]);
 
-            if (count($mti->get()) === 1){
+            if (isset($mti) && count($mti->get()) === 1){
                 $join->where('MTI.ComputerNo', '=', $mti->first()->ComputerNo);
                 $branches->where('MTI.ComputerNo', '=', $mti->first()->ComputerNo);
             }
@@ -312,20 +324,22 @@ class ItemsController extends Controller
             }
 
 
-            if ($BarCode){
+            /*if ($BarCode){
                 $join->where('MTD.BarCode', '=', $BarCode);
                 $branches->where('MTD.BarCode', '=', $BarCode);
-            }
+            }*/
 
 
-            $collection = $join->get()->groupBy('BranchName')->map(function ($row) {
+            /*$collection = $join->get()->groupBy('BranchName')->map(function ($row) {
                 return $row->sum('Qty');
-            });
+            });*/
             //dd($branches->get());
            // dd($join->get()->groupBy('BarCode'));
             /*dd($join->whereIn('Branches.BranchID',$branches->pluck('Branches.BranchID'))->get()->groupBy('BranchName')->map(function ($row) {
                 return $row->sum('Qty');
             }));*/
+
+            $img = 'http://82.137.231.35:100/' . $ComputerNo . '.jpg';
             return view('itemsFilter.index', [
                 'colors' => $colors,
                 'sizes' => $sizes,
@@ -347,7 +361,7 @@ class ItemsController extends Controller
                 'img' => $img,
 
             ]);
-        }
+
 
 
     }

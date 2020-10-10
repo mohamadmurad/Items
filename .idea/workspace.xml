@@ -22,10 +22,6 @@
     <list default="true" id="ed67b6fb-477a-4b14-8d6f-b4f97609b680" name="Default Changelist" comment="new">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ItemsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ItemsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/itemsFilter/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/itemsFilter/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/itemsFilter/showing.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/itemsFilter/showing.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +190,7 @@
       <workItem from="1602139236447" duration="11793000" />
       <workItem from="1602153560682" duration="5720000" />
       <workItem from="1602311881304" duration="859000" />
-      <workItem from="1602313910560" duration="4327000" />
+      <workItem from="1602313910560" duration="5553000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1602150279870</created>
@@ -210,7 +206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602155581346</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="new">
+      <created>1602318715694</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1602318715695</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,10 +248,10 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="492" y="134" key="Github.UntrackedFilesDialog/0.0.1440.860@0.0.1440.860" timestamp="1602065423997" />
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1602155585941">
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1602318721820">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1602155585941" />
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1602318721820" />
     <state x="383" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1601977969997">
       <screen x="0" y="0" width="1440" height="860" />
     </state>

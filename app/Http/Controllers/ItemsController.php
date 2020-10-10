@@ -342,13 +342,11 @@ class ItemsController extends Controller
             }));*/
 
             $img = 'http://82.137.231.35:100/' . $ComputerNo . '.jpg';
-        $mti->first();$join->get()->groupBy('BarCode');$branches->get(); $join->whereIn('Branches.BranchID',$branches->pluck('Branches.BranchID'))->get()->groupBy('BranchName')->map(function ($row) {
-        return $row->sum('Qty');
-    });
+
 
 
         $time_elapsed_secs = microtime(true) - $time_start;
-        dd($time_elapsed_secs);
+       // dd($time_elapsed_secs);
             return view('itemsFilter.index', [
                 'colors' => $colors,
                 'sizes' => $sizes,
@@ -377,6 +375,7 @@ class ItemsController extends Controller
 
 
     public function getTable(Request $request){
+
         $mti = MTI::FilterData($request);
         return view('itemsFilter.showing', [
             'MTI' => $mti->paginate(),

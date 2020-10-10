@@ -22,12 +22,6 @@ Route::get('/items',[\App\Http\Controllers\ItemsController::class,'index'])->nam
 
 Route::post('/items',[\App\Http\Controllers\ItemsController::class,'search'])->name('itemsSearch');
 
-Route::post('/itemsTable',[\App\Http\Controllers\ItemsController::class,'getTable'])->name('table');
-Route::get('/itemsTable',function (){
-
-    return redirect('items');
-
-});
-
+Route::get('/itemsTable',[\App\Http\Controllers\ItemsController::class,'getTable'])->name('getTable');
 
 Route::get('/items/{ComputerNo}',[\App\Http\Controllers\ItemsController::class,'show'])->name('show');

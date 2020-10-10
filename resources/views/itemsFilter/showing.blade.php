@@ -29,7 +29,7 @@
     </table>
 
     <div class="d-flex justify-content-center">
-        {!! $MTI->links() !!}
+        {{ $MTI->appends(request()->except('page'))->links() }}.
     </div>
 
 

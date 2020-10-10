@@ -3,14 +3,14 @@
 @section('content')
 
 
-    <form action="{{ route('itemsSearch') }}" method="POST" style="margin: 0px 0px 20px 0px;">
+    <form action="{{ route('itemsSearch') }}" id="itemsSearch" method="POST" style="margin: 0px 0px 20px 0px;">
         @csrf
         <div class="row">
             {{--                 computerNo--}}
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>رقم الكمبيوتر :</strong>
-                    <input type="text" class="form-control" name="ComputerNo"
+                    <input type="text" class="form-control" name="ComputerNo" id="ComputerNo"
                            value="{{isset($mti) ? $mti->ComputerNo :'' }}">
                 </div>
             </div>
@@ -18,7 +18,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>رقم الباركود :</strong>
-                    <input type="text" class="form-control" name="BarCode"
+                    <input type="text" class="form-control" name="BarCode" id="BarCode"
                            value="{{isset($mti) ? $mti->BarCode : ''  }}">
                 </div>
             </div>
@@ -26,7 +26,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>رقم الموديل :</strong>
-                    <input type="text" class="form-control" name="ModelNo"
+                    <input type="text" class="form-control" name="ModelNo" id="ModelNo"
                            value="{{isset($mti) ? $mti->ModelNo : ''  }}">
                 </div>
             </div>

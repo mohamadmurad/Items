@@ -77,6 +77,22 @@
 <script>
 
     $(document).ready(function () {
+        $('#itemsSearch').on('submit', function(e) {
+          //  e.preventDefault();
+            var computerNo = $("#ComputerNo").val();
+            var BarCode = $("#BarCode").val();
+            var ModelNo =  $("#ModelNo").val();
+            if(computerNo || BarCode || ModelNo){
+                $("#itemsSearch").attr('action', '/items');
+
+            }else {
+                $("#itemsSearch").attr('action', '/itemsTable');
+                $("#itemsSearch").attr('method', 'get');
+
+            }
+            return true;
+
+        });
 
     });
 

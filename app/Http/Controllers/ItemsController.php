@@ -343,7 +343,7 @@ class ItemsController extends Controller
                 return $row->sum('Qty');
             }));*/
 
-            $img = 'http://82.137.231.35:100/' . $ComputerNo . '.jpg';
+            $img = env('PHOTO_FTP','http://82.137.231.35:100/') . $ComputerNo . '.jpg';
 
 
 
@@ -613,7 +613,7 @@ PIVOT(
             return $row->sum('Qty');
         }));*/
 
-        $img = 'http://82.137.231.35:100/' . $ComputerNo . '.jpg';
+        $img = env('PHOTO_FTP','http://82.137.231.35:100/') . $ComputerNo . '.jpg';
 
 
 

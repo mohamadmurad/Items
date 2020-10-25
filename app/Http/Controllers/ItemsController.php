@@ -61,7 +61,7 @@ class ItemsController extends Controller
         $brands = Brands::all();
         $years = MTI::select('ItemYear')->groupBy('ItemYear')->get();
 
-        $img = 'http://82.137.231.35:100/' . $ComputerNo . '.jpg';
+        $img = env('PHOTO_FTP','http://82.137.231.35:100/') . $ComputerNo . '.jpg';
         $branches =  DB::table('MTI')->where('MTI.ComputerNo', '=', $ComputerNo)
             ->join('MTD', 'MTI.ComputerNo', '=', 'MTD.ComputerNo')
             ->join('MTS', 'MTD.Code', '=', 'MTS.Code')

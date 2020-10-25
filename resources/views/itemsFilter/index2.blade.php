@@ -120,18 +120,18 @@
             </div>
 
 
-{{--            <div class="col-xs-12 col-sm-12 col-md-6">--}}
-{{--                <div class="form-group">--}}
-{{--                    <strong>الشركة المصنعة :</strong>--}}
-{{--                    <select class="form-control" name="BrandID">--}}
-{{--                        <option value="0">الكل</option>--}}
-{{--                        @foreach($brands as $brand)--}}
-{{--                            <option--}}
-{{--                                value="{{ $brand->BrandID }}" {{ isset($mti) ? $mti->BrandID == $brand->BrandID ? 'selected' : '' :''}}>{{$brand->BrandName }}</option>--}}
-{{--                        @endforeach--}}
-{{--                    </select>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="form-group">
+                    <strong>الشركة المصنعة :</strong>
+                    <select class="form-control" name="BrandID">
+                        <option value="0">الكل</option>
+                        @foreach($brands as $brand)
+                            <option
+                                value="{{ $brand->BrandID }}" {{ isset($mti) ? $mti->BrandID == $brand->BrandID ? 'selected' : '' :''}}>{{$brand->BrandName }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
 
 
             <div class="col-xs-12 col-sm-12 col-md-6">

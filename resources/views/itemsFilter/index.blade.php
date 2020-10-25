@@ -169,7 +169,7 @@
             {{--                </div>--}}
             {{--            </div>--}}
 
-            <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>الوصف :</strong>
                     <input class="form-control form-control-lg" type="text" name="Des"
@@ -177,6 +177,7 @@
 
                 </div>
             </div>
+
 
 
             <label class="col-form-label">الاسعار</label>

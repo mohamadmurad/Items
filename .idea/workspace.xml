@@ -19,16 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed67b6fb-477a-4b14-8d6f-b4f97609b680" name="Default Changelist" comment="new">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/LicenceController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckLicence.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/licence/make.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="ed67b6fb-477a-4b14-8d6f-b4f97609b680" name="Default Changelist" comment="new" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -208,6 +199,7 @@
       <workItem from="1603617887243" duration="109000" />
       <workItem from="1617039433738" duration="387000" />
       <workItem from="1617073164641" duration="305000" />
+      <workItem from="1617073523790" duration="32000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1602150279870</created>
@@ -251,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603611496768</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="new">
+      <created>1617073539109</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1617073539109</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

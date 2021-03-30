@@ -20,7 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed67b6fb-477a-4b14-8d6f-b4f97609b680" name="Default Changelist" comment="new">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ItemsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ItemsController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/LicenceController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckLicence.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/licence/make.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,17 +161,19 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\MHD\PhpstormProjects\Items\resources\views" />
+      <recent name="C:\Users\MHD\PhpstormProjects\Items\app\Http\Middleware" />
+      <recent name="C:\Users\MHD\PhpstormProjects\Items\app\Http\Controllers" />
+      <recent name="C:\Users\MHD\PhpstormProjects\Items" />
       <recent name="C:\Users\mohamad.mu\PhpstormProjects\Items\resources\views\itemsFilter" />
-      <recent name="C:\Users\mohamad.mu\PhpstormProjects\Items\public\img" />
-      <recent name="C:\Users\mohamad.mu\PhpstormProjects\Items\resources\views\layout" />
-      <recent name="C:\Users\mohamad.mu\PhpstormProjects\Items\public\css" />
     </key>
   </component>
   <component name="RunManager">
@@ -197,6 +206,8 @@
       <workItem from="1602770467649" duration="20000" />
       <workItem from="1603609914383" duration="3376000" />
       <workItem from="1603617887243" duration="109000" />
+      <workItem from="1617039433738" duration="387000" />
+      <workItem from="1617073164641" duration="305000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1602150279870</created>
@@ -261,27 +272,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new" />
     <option name="LAST_COMMIT_MESSAGE" value="new" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="396" y="177" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601986517635">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="396" y="177" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1440.860@0.0.1440.860" timestamp="1601986517635" />
-    <state x="598" y="327" key="Github.ShareDialog" timestamp="1602065385030">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="598" y="327" key="Github.ShareDialog/0.0.1440.860@0.0.1440.860" timestamp="1602065385030" />
-    <state x="492" y="134" key="Github.UntrackedFilesDialog" timestamp="1602065423997">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="492" y="134" key="Github.UntrackedFilesDialog/0.0.1440.860@0.0.1440.860" timestamp="1602065423997" />
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1603611500439">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1603611500439" />
-    <state x="383" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1601977969997">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="383" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1440.860@0.0.1440.860" timestamp="1601977969997" />
   </component>
 </project>

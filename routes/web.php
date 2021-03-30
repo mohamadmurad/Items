@@ -25,3 +25,8 @@ Route::post('/items',[\App\Http\Controllers\ItemsController::class,'search'])->n
 Route::get('/itemsTable',[\App\Http\Controllers\ItemsController::class,'getTable'])->name('getTable');
 
 Route::get('/items/{ComputerNo}',[\App\Http\Controllers\ItemsController::class,'show'])->name('show');
+
+
+Route::get('li',[\App\Http\Controllers\LicenceController::class,'index']);
+
+Route::post('li', [\App\Http\Controllers\LicenceController::class,'registerLicence'])->name('licenceMake');
